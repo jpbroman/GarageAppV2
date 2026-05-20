@@ -25,10 +25,10 @@ public class ConsoleUI : IUI
     {
         int nSeats = 0;
         Vehicle.VehicleTypeE vehicleType = Utils.PromptEnumSelection<Vehicle.VehicleTypeE>("Type of vehicle:");
-        string make = Utils.SafeInput("Enter make: ");
-        string color = Utils.SafeInput("Enter color: ");
-        string regNumber = Utils.SafeInput("Enter registration number: ");
-        while (!int.TryParse(Utils.SafeInput("Enter number of seats: "), out nSeats))
+        string make = GetInput("Enter make: ");
+        string color = GetInput("Enter color: ");
+        string regNumber = GetInput("Enter registration number: ");
+        while (!int.TryParse(GetInput("Enter number of seats: "), out nSeats))
         {
             Console.WriteLine("Enter a valid integer for number of seats.");
         }
@@ -37,7 +37,7 @@ public class ConsoleUI : IUI
 
     public string VehicleToUnpark()
     {
-        return (Utils.SafeInput("Enter registration number: "));
+        return (GetInput("Enter registration number: "));
     }
 
     public void ShowVehicles(IEnumerable<Vehicle> vehicles)
