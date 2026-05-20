@@ -78,14 +78,12 @@ public class GarageManager : IManager
         string? make = null,
         string? color = null)
     {
-        Console.WriteLine($"in: {type}, {make}, {color}");
-
         return _garage.GetParkedVehicles().Where(v =>
             (type.Value  == Vehicle.VehicleTypeE.Unknown || v.Type == type.Value) &&
             (string.IsNullOrWhiteSpace(make) || string.Equals(v.Make, make, StringComparison.OrdinalIgnoreCase)) &&
             (string.IsNullOrWhiteSpace(color) || string.Equals(v.Color, color, StringComparison.OrdinalIgnoreCase)));
     }
-    private void LoadParkedVehiclesFromFile(string filePath)
+    public void LoadParkedVehiclesFromFile(string filePath)
     {
         if (!File.Exists(filePath)) 
         {
