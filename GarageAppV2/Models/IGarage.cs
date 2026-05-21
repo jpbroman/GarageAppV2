@@ -12,12 +12,12 @@ public interface IGarage
 
 public interface IUI
 {
-    void ShowMenu();
-    Vehicle? VehicleToPark();
-    string VehicleToUnpark();
-    void ShowVehicles(IEnumerable<Vehicle> vehicles);
-    void ShowMessage(string message);
-    string GetInput(string prompt = "");
+    abstract void ShowMenu();
+    abstract Vehicle? VehicleToPark();
+    abstract string VehicleToUnpark();
+    abstract void ShowVehicles(IEnumerable<Vehicle> vehicles);
+    abstract void ShowMessage(string message);
+    abstract string GetInput(string prompt = "");
 }
 
 public interface IManager

@@ -7,7 +7,7 @@ public class VehicleFactory
     {
         int seats = 0;
         string[] parts = data.Split(',', StringSplitOptions.TrimEntries);
-        if (parts.Length < 4)
+        if (parts.Length < 3)
         {
             throw new ArgumentException("Invalid data format for vehicle.");
         }
@@ -55,7 +55,7 @@ public class VehicleFactory
                 Boat boat = new Boat(make, color, regNumber, seats, boatType, length);
                 return boat;
             default:
-                throw new ArgumentException($"Unknown vehicle type: {type}");
+                throw new ArgumentException($"Unknown vehicle type {type}.");
         }
     }
  }   

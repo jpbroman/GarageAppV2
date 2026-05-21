@@ -17,7 +17,11 @@ public class Vehicle
         Make = make;
         Color = color;
         NumberOfSeats = numSeats;
-        RegNumber = RegNumberFormat(regNumber); // Validate and format to consisten format. If invalid.
+        RegNumber = RegNumberFormat(regNumber); // Validate and format to consisten format.
+        if (RegNumber == null)
+        {
+            throw new ArgumentException("Invalid registration number format");
+        }
     }
     protected string? RegNumberFormat(string input)
     {

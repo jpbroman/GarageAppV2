@@ -103,7 +103,7 @@ public class GarageManager : IManager
         }
     }
 
-    protected void SaveParkedVehiclesToFile(string filePath)
+    public void SaveParkedVehiclesToFile(string filePath)
     {
         IEnumerable<Vehicle> vehicles = _garage.GetParkedVehicles();
 
