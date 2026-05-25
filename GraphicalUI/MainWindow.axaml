@@ -1,0 +1,175 @@
+<Window
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    x:Class="GraphicalUI.MainWindow"
+    Width="1200"
+    Height="700"
+    Title="Garage Application">
+
+    <Grid ColumnDefinitions="220,*"
+          RowDefinitions="Auto,*,Auto">
+
+<!-- Left Menu -->
+        <Border Grid.RowSpan="3"
+                Background="#2D2D30"
+                Padding="12">
+
+            <StackPanel Spacing="10">
+
+                <TextBlock Text="Garage Menu"
+                        FontSize="24"
+                        FontWeight="Bold"
+                        Foreground="White"
+                        Margin="0,0,0,15"/>
+
+                <Button Name="AddVehicleButton"
+                        Content="Add Vehicle"
+                        Foreground="White"/>
+
+                <Button Name="RemoveVehicleButton"
+                        Content="Remove Vehicle"
+                        Foreground="White"/>
+
+                <Button Name="DisplayVehiclesButton"
+                        Content="Display Vehicles"
+                        Foreground="White"/>
+
+                <Button Name="FindVehicleButton"
+                        Content="Find Vehicle"
+                        Foreground="White"/>
+
+                <Button Name="SaveButton"
+                        Content="Save Inventory"
+                        Foreground="White"/>
+
+                <Button Name="LoadButton"
+                        Content="Load Inventory"
+                        Foreground="White"/>
+
+                <Button Name="ExitButton"
+                        Content="Exit"
+                        Foreground="White"/>
+        </StackPanel>
+        </Border>        <!-- Vehicle Form -->
+        <Border Grid.Column="1"
+                Padding="15">
+
+            <StackPanel Spacing="10">
+
+                <TextBlock Text="Vehicle Information"
+                           FontSize="20"
+                           FontWeight="Bold"/>
+
+                <Grid ColumnDefinitions="150,*"
+                      RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto">
+
+                    <TextBlock Grid.Row="0"
+                               Text="Type:"
+                               VerticalAlignment="Center"/>
+
+                    <ComboBox Grid.Row="0"
+                              Grid.Column="1"
+                              Name="VehicleTypeComboBox"/>
+
+                    <TextBlock Grid.Row="1"
+                               Text="Make:"
+                               VerticalAlignment="Center"/>
+
+                    <TextBox Grid.Row="1"
+                             Grid.Column="1"
+                             Name="MakeTextBox"/>
+
+                    <TextBlock Grid.Row="2"
+                               Text="Color:"
+                               VerticalAlignment="Center"/>
+
+                    <TextBox Grid.Row="2"
+                             Grid.Column="1"
+                             Name="ColorTextBox"/>
+
+                    <TextBlock Grid.Row="3"
+                               Text="Registration:"
+                               VerticalAlignment="Center"/>
+
+                    <TextBox Grid.Row="3"
+                             Grid.Column="1"
+                             Name="RegTextBox"/>
+
+                    <TextBlock Grid.Row="4"
+                               Text="Seats:"
+                               VerticalAlignment="Center"/>
+
+                    <NumericUpDown Grid.Row="4"
+                                   Grid.Column="1"
+                                   Name="SeatsNumeric"
+                                   Minimum="1"
+                                   Maximum="500"/>
+
+                    <TextBlock Grid.Row="5"
+                               Text="Details:"
+                               VerticalAlignment="Center"/>
+
+                    <StackPanel Grid.Row="5"
+                                Grid.Column="1"
+                                Orientation="Horizontal"
+                                Spacing="10">
+
+                        <ComboBox Name="DetailTypeComboBox"
+                                  Width="200"/>
+
+                        <ComboBox Name="DetailExtraComboBox"
+                                  Width="200"/>
+
+                        <NumericUpDown Name="ExtraNumeric"
+                                       Width="120"/>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+        </Border>
+
+        <!-- Vehicle Grid -->
+        <Border Grid.Row="1"
+                Grid.Column="1"
+                Padding="15">
+
+            <DataGrid Name="VehiclesGrid"
+                    AutoGenerateColumns="False"
+                    IsReadOnly="True"
+                    x:CompileBindings="False">
+                <DataGrid.Columns>
+
+                    <DataGridTextColumn Header="Type"
+                                        Binding="{Binding Type}"/>
+
+                    <DataGridTextColumn Header="Make"
+                                        Binding="{Binding Make}"/>
+
+                    <DataGridTextColumn Header="Color"
+                                        Binding="{Binding Color}"/>
+
+                    <DataGridTextColumn Header="RegNumber"
+                                        Binding="{Binding RegNumber}"/>
+
+                    <DataGridTextColumn Header="Seats"
+                                        Binding="{Binding NumberOfSeats}"/>
+
+                    <DataGridTextColumn Header="Details"
+                                        Binding="{Binding Details}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
+
+        <!-- Status -->
+        <Border Grid.Row="2"
+                Grid.Column="1"
+                Background="#303030"
+                Padding="10">
+
+            <TextBlock Name="StatusText"
+                       Text="Ready"/>
+        </Border>
+    </Grid>
+</Window>
